@@ -1,0 +1,8 @@
+server:
+  port: 8080
+
+spring:
+  name: test
+  datasource: jdbc:mysql://127.0.0.1:3306/test
+  username: root
+  password: root

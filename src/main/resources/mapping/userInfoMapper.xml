@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="musican.dao.userInfoMapper">
+  <resultMap id="BaseResultMap" type="musican.model.userInfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_info_name" jdbcType="VARCHAR" property="userInfoName" />
+    <result column="user_info_tel" jdbcType="VARCHAR" property="userInfoTel" />
+    <result column="user_info_email" jdbcType="VARCHAR" property="userInfoEmail" />
+    <result column="user_info_sign" jdbcType="VARCHAR" property="userInfoSign" />
+    <result column="user_info_intro" jdbcType="VARCHAR" property="userInfoIntro" />
+    <result column="band_info_id" jdbcType="VARCHAR" property="bandInfoId" />
+    <result column="dyn_info_id" jdbcType="VARCHAR" property="dynInfoId" />
+    <result column="music_style" jdbcType="VARCHAR" property="musicStyle" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, user_info_name, user_info_tel, user_info_email, user_info_sign, user_info_intro, 
+    band_info_id, dyn_info_id, music_style, create_date, update_date, del_flag, create_user, 
+    update_user
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="musican.model.userInfo">
+    insert into user_info (id, user_id, user_info_name, 
+      user_info_tel, user_info_email, user_info_sign, 
+      user_info_intro, band_info_id, dyn_info_id, 
+      music_style, create_date, update_date, 
+      del_flag, create_user, update_user
+      )
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{userInfoName,jdbcType=VARCHAR}, 
+      #{userInfoTel,jdbcType=VARCHAR}, #{userInfoEmail,jdbcType=VARCHAR}, #{userInfoSign,jdbcType=VARCHAR}, 
+      #{userInfoIntro,jdbcType=VARCHAR}, #{bandInfoId,jdbcType=VARCHAR}, #{dynInfoId,jdbcType=VARCHAR}, 
+      #{musicStyle,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{delFlag,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="musican.model.userInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userInfoName != null">
+        user_info_name,
+      </if>
+      <if test="userInfoTel != null">
+        user_info_tel,
+      </if>
+      <if test="userInfoEmail != null">
+        user_info_email,
+      </if>
+      <if test="userInfoSign != null">
+        user_info_sign,
+      </if>
+      <if test="userInfoIntro != null">
+        user_info_intro,
+      </if>
+      <if test="bandInfoId != null">
+        band_info_id,
+      </if>
+      <if test="dynInfoId != null">
+        dyn_info_id,
+      </if>
+      <if test="musicStyle != null">
+        music_style,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfoName != null">
+        #{userInfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfoTel != null">
+        #{userInfoTel,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfoEmail != null">
+        #{userInfoEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfoSign != null">
+        #{userInfoSign,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfoIntro != null">
+        #{userInfoIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="bandInfoId != null">
+        #{bandInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="dynInfoId != null">
+        #{dynInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="musicStyle != null">
+        #{musicStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="musican.model.userInfo">
+    update user_info
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfoName != null">
+        user_info_name = #{userInfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfoTel != null">
+        user_info_tel = #{userInfoTel,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfoEmail != null">
+        user_info_email = #{userInfoEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfoSign != null">
+        user_info_sign = #{userInfoSign,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfoIntro != null">
+        user_info_intro = #{userInfoIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="bandInfoId != null">
+        band_info_id = #{bandInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="dynInfoId != null">
+        dyn_info_id = #{dynInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="musicStyle != null">
+        music_style = #{musicStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="musican.model.userInfo">
+    update user_info
+    set user_id = #{userId,jdbcType=VARCHAR},
+      user_info_name = #{userInfoName,jdbcType=VARCHAR},
+      user_info_tel = #{userInfoTel,jdbcType=VARCHAR},
+      user_info_email = #{userInfoEmail,jdbcType=VARCHAR},
+      user_info_sign = #{userInfoSign,jdbcType=VARCHAR},
+      user_info_intro = #{userInfoIntro,jdbcType=VARCHAR},
+      band_info_id = #{bandInfoId,jdbcType=VARCHAR},
+      dyn_info_id = #{dynInfoId,jdbcType=VARCHAR},
+      music_style = #{musicStyle,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      update_user = #{updateUser,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
