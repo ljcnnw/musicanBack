@@ -1,6 +1,6 @@
 package com.musican.sysDict.model;
 
-public class sysDict {
+public class SysDict {
     private String id;
 
     private String type;

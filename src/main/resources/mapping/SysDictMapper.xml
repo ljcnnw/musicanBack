@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="musican.dao.sysDictMapper">
-  <resultMap id="BaseResultMap" type="musican.model.sysDict">
+<mapper namespace="com.musican.sysDict.dao.SysDictMapper">
+  <resultMap id="BaseResultMap" type="com.musican.sysDict.model.SysDict">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="label" jdbcType="VARCHAR" property="label" />
@@ -21,13 +21,13 @@
     delete from sys_dict
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="musican.model.sysDict">
+  <insert id="insert" parameterType="com.musican.sysDict.model.SysDict">
     insert into sys_dict (id, type, label, 
       sort, value)
     values (#{id,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{label,jdbcType=VARCHAR}, 
       #{sort,jdbcType=VARCHAR}, #{value,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="musican.model.sysDict">
+  <insert id="insertSelective" parameterType="com.musican.sysDict.model.SysDict">
     insert into sys_dict
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="musican.model.sysDict">
+  <update id="updateByPrimaryKeySelective" parameterType="com.musican.sysDict.model.SysDict">
     update sys_dict
     <set>
       <if test="type != null">
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="musican.model.sysDict">
+  <update id="updateByPrimaryKey" parameterType="com.musican.sysDict.model.SysDict">
     update sys_dict
     set type = #{type,jdbcType=VARCHAR},
       label = #{label,jdbcType=VARCHAR},

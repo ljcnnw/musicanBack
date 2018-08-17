@@ -1,17 +1,13 @@
-package com.musican.bandInfo.model;
+package com.musican.sysUser.model;
 
 import java.util.Date;
 
-public class bandInfo {
+public class SysUser {
     private String id;
 
-    private String bandName;
+    private String userName;
 
-    private String bandStyle;
-
-    private String bandIntro;
-
-    private String bandPeople;
+    private String userPass;
 
     private Date createDate;
 
@@ -31,36 +27,20 @@ public class bandInfo {
         this.id = id == null ? null : id.trim();
     }
 
-    public String getBandName() {
-        return bandName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setBandName(String bandName) {
-        this.bandName = bandName == null ? null : bandName.trim();
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
-    public String getBandStyle() {
-        return bandStyle;
+    public String getUserPass() {
+        return userPass;
     }
 
-    public void setBandStyle(String bandStyle) {
-        this.bandStyle = bandStyle == null ? null : bandStyle.trim();
-    }
-
-    public String getBandIntro() {
-        return bandIntro;
-    }
-
-    public void setBandIntro(String bandIntro) {
-        this.bandIntro = bandIntro == null ? null : bandIntro.trim();
-    }
-
-    public String getBandPeople() {
-        return bandPeople;
-    }
-
-    public void setBandPeople(String bandPeople) {
-        this.bandPeople = bandPeople == null ? null : bandPeople.trim();
+    public void setUserPass(String userPass) {
+        this.userPass = userPass == null ? null : userPass.trim();
     }
 
     public Date getCreateDate() {

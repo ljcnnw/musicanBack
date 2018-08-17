@@ -2,7 +2,7 @@ package com.musican.userInfo.model;
 
 import java.util.Date;
 
-public class userInfo {
+public class UserInfo {
     private String id;
 
     private String userId;
@@ -15,6 +15,7 @@ public class userInfo {
 
     private String userInfoSign;
 
+    
     private String userInfoIntro;
 
     private String bandInfoId;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="musican.dao.userInfoMapper">
-  <resultMap id="BaseResultMap" type="musican.model.userInfo">
+<mapper namespace="com.musican.userInfo.dao.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.musican.userInfo.model.UserInfo">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="user_info_name" jdbcType="VARCHAR" property="userInfoName" />
@@ -33,7 +33,7 @@
     delete from user_info
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="musican.model.userInfo">
+  <insert id="insert" parameterType="com.musican.userInfo.model.UserInfo">
     insert into user_info (id, user_id, user_info_name, 
       user_info_tel, user_info_email, user_info_sign, 
       user_info_intro, band_info_id, dyn_info_id, 
@@ -47,7 +47,7 @@
       #{delFlag,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="musican.model.userInfo">
+  <insert id="insertSelective" parameterType="com.musican.userInfo.model.UserInfo">
     insert into user_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -144,7 +144,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="musican.model.userInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.musican.userInfo.model.UserInfo">
     update user_info
     <set>
       <if test="userId != null">
@@ -192,7 +192,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="musican.model.userInfo">
+  <update id="updateByPrimaryKey" parameterType="com.musican.userInfo.model.UserInfo">
     update user_info
     set user_id = #{userId,jdbcType=VARCHAR},
       user_info_name = #{userInfoName,jdbcType=VARCHAR},
