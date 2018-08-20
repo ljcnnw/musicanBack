@@ -130,4 +130,13 @@
       update_user = #{updateUser,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
+  <select id="login" parameterType="com.musican.sysUser.model.SysUser" resultType="com.musican.sysUser.model.SysUser">
+    select
+    <include refid="Base_Column_List" />
+    from sys_user
+    where user_name = #{userName}
+    AND user_pass = #{userPass}
+    AND del_flag = '0'
+  </select>
 </mapper>

@@ -1,5 +1,10 @@
 package com.musican.sysUser.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.Entity;
 import java.util.Date;
 
 public class SysUser {
@@ -43,6 +48,7 @@ public class SysUser {
         this.userPass = userPass == null ? null : userPass.trim();
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",locale="zh",timezone="GMT+8")
     public Date getCreateDate() {
         return createDate;
     }
@@ -51,6 +57,7 @@ public class SysUser {
         this.createDate = createDate;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",locale="zh",timezone="GMT+8")
     public Date getUpdateDate() {
         return updateDate;
     }

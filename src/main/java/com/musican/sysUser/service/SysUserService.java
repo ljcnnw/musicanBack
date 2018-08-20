@@ -1,5 +1,6 @@
 package com.musican.sysUser.service;
 
+import com.musican.Utils.ReturnMessage;
 import com.musican.sysUser.dao.SysUserMapper;
 import com.musican.sysUser.model.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +17,18 @@ public class SysUserService implements ISysUserService{
     public List<SysUser> findList() {
 
         return sysUserMapper.findList();
+    }
+
+    @Override
+    public ReturnMessage login(SysUser sysUser) {
+        ReturnMessage returnMessage = new ReturnMessage();
+        SysUser user = sysUserMapper.login(sysUser);
+        if(user == null){
+            returnMessage.setMessage("用户名密码错误");
+            returnMessage.setSuccess(false);
+        }else {
+            returnMessage.setData(user);
+        }
+        return returnMessage;
     }
 }

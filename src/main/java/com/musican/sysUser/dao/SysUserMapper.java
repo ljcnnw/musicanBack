@@ -19,4 +19,6 @@ public interface SysUserMapper {
     int updateByPrimaryKey(SysUser record);
 
     List<SysUser> findList();
+
+    SysUser login(SysUser sysUser);
 }

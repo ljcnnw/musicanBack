@@ -1,5 +1,6 @@
 package com.musican.sysUser.web;
 
+import com.musican.Utils.ReturnMessage;
 import com.musican.sysUser.model.SysUser;
 import com.musican.sysUser.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,9 @@ public class SysUserController {
         return sysUserService.findList();
     }
 
-    @PostMapping("test")
-    public String test(String userName){
-        System.out.print("---------");
-        System.out.print(userName);
-        return userName;
+    @PostMapping("login")
+    public ReturnMessage login(@RequestBody SysUser sysUser){
+        return sysUserService.login(sysUser);
     }
+
 }
