@@ -27,6 +27,7 @@ public class SysUserService implements ISysUserService{
             returnMessage.setMessage("用户名密码错误");
             returnMessage.setSuccess(false);
         }else {
+            returnMessage.setSuccess(true);
             returnMessage.setData(user);
         }
         return returnMessage;
