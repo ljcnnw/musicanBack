@@ -34,6 +34,16 @@ public class UserInfo {
 
     private String updateUser;
 
+    private String userInfoImg;
+
+    public String getUserInfoImg() {
+        return userInfoImg;
+    }
+
+    public void setUserInfoImg(String userInfoImg) {
+        this.userInfoImg = userInfoImg;
+    }
+
     public String getId() {
         return id;
     }

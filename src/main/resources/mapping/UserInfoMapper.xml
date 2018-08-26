@@ -17,6 +17,7 @@
     <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
     <result column="create_user" jdbcType="VARCHAR" property="createUser" />
     <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="user_info_img" jdbcType="VARCHAR" property="userInfoImg" />
   </resultMap>
   <sql id="Base_Column_List">
     id, user_id, user_info_name, user_info_tel, user_info_email, user_info_sign, user_info_intro, 
