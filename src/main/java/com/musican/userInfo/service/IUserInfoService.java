@@ -7,4 +7,6 @@ import java.util.List;
 public interface IUserInfoService {
     List<UserInfo> findPage();
 
+    void regist(UserInfo userInfo);
+
 }

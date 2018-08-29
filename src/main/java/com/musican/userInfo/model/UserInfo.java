@@ -1,9 +1,11 @@
 package com.musican.userInfo.model;
 
+import com.musican.Utils.CurrencyBean;
+
 import java.util.Date;
 
-public class UserInfo {
-    private String id;
+public class UserInfo extends CurrencyBean {
+
 
     private String userId;
 
@@ -15,7 +17,7 @@ public class UserInfo {
 
     private String userInfoSign;
 
-    
+
     private String userInfoIntro;
 
     private String bandInfoId;
@@ -24,15 +26,6 @@ public class UserInfo {
 
     private String musicStyle;
 
-    private Date createDate;
-
-    private Date updateDate;
-
-    private String delFlag;
-
-    private String createUser;
-
-    private String updateUser;
 
     private String userInfoImg;
 
@@ -54,13 +47,6 @@ public class UserInfo {
         this.userInfoImg = userInfoImg;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
 
     public String getUserId() {
         return userId;
@@ -134,43 +120,5 @@ public class UserInfo {
         this.musicStyle = musicStyle == null ? null : musicStyle.trim();
     }
 
-    public Date getCreateDate() {
-        return createDate;
-    }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
-    }
-
-    public String getDelFlag() {
-        return delFlag;
-    }
-
-    public void setDelFlag(String delFlag) {
-        this.delFlag = delFlag == null ? null : delFlag.trim();
-    }
-
-    public String getCreateUser() {
-        return createUser;
-    }
-
-    public void setCreateUser(String createUser) {
-        this.createUser = createUser == null ? null : createUser.trim();
-    }
-
-    public String getUpdateUser() {
-        return updateUser;
-    }
-
-    public void setUpdateUser(String updateUser) {
-        this.updateUser = updateUser == null ? null : updateUser.trim();
-    }
 }

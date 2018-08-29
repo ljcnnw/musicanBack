@@ -16,4 +16,9 @@ public class UserInfoService implements IUserInfoService {
     public List<UserInfo> findPage() {
         return userInfoMapper.findPage();
     }
+
+    @Override
+    public void regist(UserInfo userInfo) {
+
+    }
 }
