@@ -36,6 +36,16 @@ public class UserInfo {
 
     private String userInfoImg;
 
+    private String userInfoAddress;
+
+    public String getUserInfoAddress() {
+        return userInfoAddress;
+    }
+
+    public void setUserInfoAddress(String userInfoAddress) {
+        this.userInfoAddress = userInfoAddress;
+    }
+
     public String getUserInfoImg() {
         return userInfoImg;
     }

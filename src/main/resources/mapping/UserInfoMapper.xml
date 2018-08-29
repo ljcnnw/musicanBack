@@ -18,11 +18,12 @@
     <result column="create_user" jdbcType="VARCHAR" property="createUser" />
     <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
     <result column="user_info_img" jdbcType="VARCHAR" property="userInfoImg" />
+    <result column="user_info_address" jdbcType="VARCHAR" property="userInfoAddress" />
   </resultMap>
   <sql id="Base_Column_List">
     id, user_id, user_info_name, user_info_tel, user_info_email, user_info_sign, user_info_intro, 
     band_info_id, dyn_info_id, music_style, create_date, update_date, del_flag, create_user, 
-    update_user
+    update_user,user_info_address,user_info_img
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -39,13 +40,14 @@
       user_info_tel, user_info_email, user_info_sign, 
       user_info_intro, band_info_id, dyn_info_id, 
       music_style, create_date, update_date, 
-      del_flag, create_user, update_user
+      del_flag, create_user, update_user,user_info_address,user_info_img
       )
     values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{userInfoName,jdbcType=VARCHAR}, 
       #{userInfoTel,jdbcType=VARCHAR}, #{userInfoEmail,jdbcType=VARCHAR}, #{userInfoSign,jdbcType=VARCHAR}, 
       #{userInfoIntro,jdbcType=VARCHAR}, #{bandInfoId,jdbcType=VARCHAR}, #{dynInfoId,jdbcType=VARCHAR}, 
       #{musicStyle,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
-      #{delFlag,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}
+      #{delFlag,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR},
+      #{userInfoAddress,jdbcType=VARCHAR},#{userInfoImg,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.musican.userInfo.model.UserInfo">
@@ -96,6 +98,12 @@
       <if test="updateUser != null">
         update_user,
       </if>
+      <if test="userInfoAddress != null">
+        user_info_address,
+      </if>
+      <if test="userInfoImg != null">
+        user_info_img
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -143,6 +151,12 @@
       <if test="updateUser != null">
         #{updateUser,jdbcType=VARCHAR},
       </if>
+      <if test="userInfoAddress != null">
+        #{userInfoAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="userInfoImg != null">
+        #{userInfoImg,jdbcType=VARCHAR}
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.musican.userInfo.model.UserInfo">
@@ -189,6 +203,12 @@
       </if>
       <if test="updateUser != null">
         update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfoAddress != null">
+        user_info_address = #{userInfoAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userInfoImg != null">
+        user_info_img = #{userInfoImg,jdbcType=VARCHAR}
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
