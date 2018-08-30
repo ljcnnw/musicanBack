@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
-public class CurrencyBean {
+public abstract class CurrencyBean {
     protected String id;
 
     protected Date createDate;
@@ -16,6 +16,34 @@ public class CurrencyBean {
     protected String createUser;
 
     protected String updateUser;
+
+    public CurrencyBean() {
+        super();
+        this.delFlag = "0";
+    }
+
+    /**
+     * 保存之前插入
+     */
+    public void preInsert(){
+        if( !StringUtils.isNotBlanks(id)){
+            this.id = StringUtils.uuid();
+        }
+        if (createDate == null){
+            this.createDate  = new Date();
+        }
+        if(updateDate == null){
+            this.updateDate = new Date();
+        }
+    }
+
+    /**
+     * 更新之前插入
+     */
+    public void preUpdate(){
+        this.updateDate = new Date();
+    }
+
 
     public String getId() {
         return id;

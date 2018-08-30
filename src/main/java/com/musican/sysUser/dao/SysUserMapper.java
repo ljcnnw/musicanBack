@@ -1,14 +1,14 @@
 package com.musican.sysUser.dao;
 
+import com.musican.Utils.IDaoUtils;
 import com.musican.sysUser.model.SysUser;
 
 import java.util.List;
 
 
-public interface SysUserMapper {
+public interface SysUserMapper  extends IDaoUtils<SysUser>{
     int deleteByPrimaryKey(String id);
 
-    int insert(SysUser record);
 
     int insertSelective(SysUser record);
 

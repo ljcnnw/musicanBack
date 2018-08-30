@@ -1,7 +1,5 @@
 package com.musican.userInfo.dao;
 
-import com.musican.Utils.CurrencyBean;
-import com.musican.Utils.DaoUtils;
 import com.musican.Utils.IDaoUtils;
 import com.musican.userInfo.model.UserInfo;
 import org.apache.ibatis.annotations.Result;
@@ -10,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-public interface UserInfoMapper extends IDaoUtils<CurrencyBean> {
+public interface UserInfoMapper extends IDaoUtils<UserInfo> {
     int deleteByPrimaryKey(String id);
 
 

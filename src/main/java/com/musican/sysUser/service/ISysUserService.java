@@ -8,4 +8,5 @@ import java.util.List;
 public interface ISysUserService {
     List<SysUser> findList();
     ReturnMessage login(SysUser sysUser);
+    ReturnMessage regist(SysUser sysUser);
 }

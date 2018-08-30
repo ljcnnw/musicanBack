@@ -9,7 +9,7 @@ public class UserInfo extends CurrencyBean {
 
     private String userId;
 
-    private String userInfoName;
+        private String userInfoName;
 
     private String userInfoTel;
 
