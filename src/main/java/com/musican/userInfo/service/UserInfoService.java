@@ -23,12 +23,11 @@ public class UserInfoService extends ServiceUtils<UserInfoMapper,UserInfo> imple
         return userInfoMapper.findPage();
     }
 
+
     @Override
-    public ReturnMessage regist(UserInfo userInfo, SysUser sysUser) {
+    public ReturnMessage regist(SysUser sysUser) {
         try {
             sysUserService.regist(sysUser);
-            userInfo.setUserId(sysUser.getId());
-            super.save(userInfo);
             ReturnMessage returnMessage = new ReturnMessage(ReturnMessage.CODE_SUCCESS);
             return returnMessage;
         }catch (Exception e){

@@ -31,6 +31,16 @@ public class UserInfo extends CurrencyBean {
 
     private String userInfoAddress;
 
+    private String address[];
+
+    public String[] getAddress() {
+        return address;
+    }
+
+    public void setAdress(String[] adress) {
+        this.address = adress;
+    }
+
     public String getUserInfoAddress() {
         return userInfoAddress;
     }

@@ -18,4 +18,17 @@ public class StringUtils {
             return true;
         }
     }
+
+
+    public static String join(String s[]) {
+        StringBuffer str = new StringBuffer();
+        for (int i = 0; i < s.length; i++) {
+            if(i == s.length-1){
+                str.append(s[i]);
+            }else {
+                str.append(s[i]+",");
+            }
+        }
+        return str.toString();
+    }
 }

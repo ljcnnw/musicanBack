@@ -22,7 +22,7 @@ public class UserInfoController {
     }
 
     @PostMapping("regist")
-    public ReturnMessage regist(@RequestBody UserInfo userInfo,@RequestBody SysUser sysUser) {
-        return userInfoService.regist(userInfo, sysUser);
+    public ReturnMessage regist(@RequestBody SysUser sysUser) {
+        return userInfoService.regist(sysUser);
     }
 }
