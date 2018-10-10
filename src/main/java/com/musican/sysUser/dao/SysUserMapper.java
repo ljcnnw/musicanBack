@@ -21,4 +21,6 @@ public interface SysUserMapper  extends IDaoUtils<SysUser>{
     List<SysUser> findList();
 
     SysUser login(SysUser sysUser);
+
+    List<SysUser> getByUserName(String userName);
 }

@@ -9,4 +9,5 @@ public interface ISysUserService {
     List<SysUser> findList();
     ReturnMessage login(SysUser sysUser);
     ReturnMessage regist(SysUser sysUser);
+    ReturnMessage checkUserName(String id);
 }
