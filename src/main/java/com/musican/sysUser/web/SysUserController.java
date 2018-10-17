@@ -72,4 +72,9 @@ public class SysUserController {
         return sysUserService.regist(sysUser);
     }
 
+    @PostMapping("email")
+    public void email() throws Exception{
+        sysUserService.sendEmail();
+    }
+
 }

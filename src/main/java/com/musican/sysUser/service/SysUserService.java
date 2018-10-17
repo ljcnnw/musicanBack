@@ -6,13 +6,19 @@ import com.musican.Utils.StringUtils;
 import com.musican.sysUser.dao.SysUserMapper;
 import com.musican.sysUser.model.SysUser;
 import com.musican.userInfo.service.IUserInfoService;
+import com.sun.mail.util.MailSSLSocketFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 @Service
 public class SysUserService extends ServiceUtils<SysUserMapper, SysUser> implements ISysUserService {
@@ -105,5 +111,38 @@ public class SysUserService extends ServiceUtils<SysUserMapper, SysUser> impleme
             message.setMessage("用户名重复");
         }
         return message;
+    }
+
+    public ReturnMessage sendEmail() throws Exception{
+        ReturnMessage returnMessage = new ReturnMessage(ReturnMessage.CODE_FIAL);
+        String email = "1444123370@qq.com";
+        String email2 = "ws86cg38@163.com";
+        String host = "smtp.qq.com";
+        Properties properties = System.getProperties();// 获取系统属性
+
+        properties.setProperty("mail.smtp.host", host);// 设置邮件服务器
+        properties.setProperty("mail.smtp.auth", "true");// 打开认证
+        //QQ邮箱需要下面这段代码，163邮箱不需要
+        MailSSLSocketFactory sf = new MailSSLSocketFactory();
+        sf.setTrustAllHosts(true);
+        properties.put("mail.smtp.ssl.enable", "true");
+        properties.put("mail.smtp.ssl.socketFactory", sf);
+        // 1.获取默认session对象
+        Session session = Session.getDefaultInstance(properties, new Authenticator() {
+            public PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("1444123370@qq.com", "effgitdwablqjdaj"); // 发件人邮箱账号、授权码
+            }
+        });
+        // 2.创建邮件对象
+        Message message = new MimeMessage(session);
+        // 2.1设置发件人
+        message.setFrom(new InternetAddress(email));
+        // 2.2设置接收人
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress(email2));
+        // 2.3设置邮件主题
+        message.setSubject("账号激活");
+        message.setContent("111111", "text/html;charset=UTF-8");
+        Transport.send(message);
+        return returnMessage;
     }
 }
