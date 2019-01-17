@@ -145,4 +145,11 @@ public class SysUserService extends ServiceUtils<SysUserMapper, SysUser> impleme
         Transport.send(message);
         return returnMessage;
     }
+
+//    @Override
+//    public ReturnMessage test() {
+//        ReturnMessage returnMessage = new ReturnMessage();
+//        returnMessage.setData(sysUserMapper.findAll());
+//        return returnMessage;
+//    }
 }

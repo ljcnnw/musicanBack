@@ -11,4 +11,5 @@ public interface ISysUserService {
     ReturnMessage regist(SysUser sysUser);
     ReturnMessage checkUserName(String id);
     ReturnMessage sendEmail() throws Exception;
+//    ReturnMessage test();
 }

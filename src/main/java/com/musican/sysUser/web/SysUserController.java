@@ -1,6 +1,7 @@
 package com.musican.sysUser.web;
 
 import com.musican.Utils.FtpUtils;
+import com.musican.Utils.MailUtils;
 import com.musican.Utils.ReturnMessage;
 import com.musican.sysUser.model.SysUser;
 import com.musican.sysUser.service.ISysUserService;
@@ -26,6 +27,8 @@ public class SysUserController {
     ISysUserService sysUserService;
     @Autowired
     FtpUtils ftpUtils;
+//    @Autowired
+//    MailUtils mailUtils;
 
     @GetMapping("findList")
     public List<SysUser> findList() {
@@ -72,9 +75,22 @@ public class SysUserController {
         return sysUserService.regist(sysUser);
     }
 
-    @PostMapping("email")
-    public void email() throws Exception{
-        sysUserService.sendEmail();
+    @GetMapping("hello")
+    public String hello(@RequestParam(value = "name") String name){
+        System.out.println("======hello======"+name);
+        return "======hello======"+name;
+//        System.setProperty("java.net.useSystemProxies", "true");
+//        System.setProperty("http.proxyHost", "cmproxy.gmcc.net");
+//        System.setProperty("http.proxyPort", "8081");
+//        URL url = new URL("www.baidu.com");
+//        mailUtils.sendSimpleMail("1444123370@qq.com","test","testMail");
     }
+
+//    @GetMapping("test")
+//    public ReturnMessage test(){
+//        ReturnMessage returnMessage = new ReturnMessage();
+//        returnMessage.setData(sysUserService.test());
+//        return returnMessage;
+//    }
 
 }

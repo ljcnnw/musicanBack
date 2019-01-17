@@ -1,5 +1,7 @@
 package com.musican.Utils;
 
-public interface IDaoUtils<T> {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IDaoUtils<T>  {
     void insert(T entity);
 }

@@ -1,24 +1,57 @@
 server:
-  port: 8090
+  port: 8099
 
 spring:
   name: test
   #连接池
   datasource:
-    url: jdbc:mysql://wane5tsk.2281.dnstoo.com:5506/musican
-    username: musican_f
-    password: ljcnnw123
+    url: jdbc:mysql://localhost:3306/musican
+    username: root
+    password: root
   servlet:
     #上传文件大小限制
     multipart:
       max-file-size: 50Mb
       max-request-size: 50Mb
+#  mail:
+#    host: smtp.163.com
+#    username: ws86cg39@163.com
+#    password: hehe123321
+#    default-encoding: UTF-8
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8095"
+  application:
+    name: "clint"
+
+
+
+mail:
+  fromMail:
+    addr: ws86cg39@163.com
+
+
 
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.musican.*.model
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#eureka监控
+eureka:
+  client:
+    service-url:
+        defaultZone: "http://localhost:8093/eureka/"
+
 
 
 
